@@ -28,7 +28,7 @@ function [U,x] = pennesFD1d(L,n,c,theta,f,leftBC,leftBCtype,rightBC,rightBCtype)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+class(f)
 % SETUP AU = F
 x = linspace(0, L, n+1);
 A = constructDifferenceOperator(x,c);
@@ -106,7 +106,7 @@ function F = computeFunction(x,f)
         F = f(x);
         F = double(F);
     else
-        error 'Incorrect source type. Expected type is source, symfun, or function_handle.'
+        error 'Incorrect input type. Expected type is double, symfun, or function_handle.'
     end
 end
 
